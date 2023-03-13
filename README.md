@@ -21,11 +21,11 @@ open integrated terminal for server.js and run 'npm i'
 
 ## Usage
 Screenshot of insomnia
-![alt text](placeholder)
+![alt text](./assets/Capture.JPG)
 
 
 Video of readme creation
-[Video Demo](placeholder)
+[Video Demo](https://drive.google.com/file/d/16ZWNK7XOpaeMk6H_2_yVuYEkyR12dxLy/view)
 
 
 ## Credits
