@@ -2,7 +2,7 @@ const { User, Thought } = require('../models');
 
 const userController = {
   
-  getUsers(req, res) {
+  getAllUsers(req, res) {
     User.find()
       .select('-__v')
       .then((dbUserData) => {
@@ -14,7 +14,7 @@ const userController = {
       });
   },
 
-  getSingleUser(req, res) {
+  getOneUser(req, res) {
     User.findOne({ _id: req.params.userId })
       .select('-__v')
       .populate('friends')
@@ -31,7 +31,7 @@ const userController = {
       });
   },
 
-  createUser(req, res) {
+  createOneUser(req, res) {
     User.create(req.body)
       .then((dbUserData) => {
         res.json(dbUserData);
@@ -42,7 +42,7 @@ const userController = {
       });
   },
 
-  updateUser(req, res) {
+  updateOneUser(req, res) {
     User.findOneAndUpdate(
       { _id: req.params.userId },
       {
@@ -65,7 +65,7 @@ const userController = {
       });
   },
 
-   deleteUser(req, res) {
+   deleteOneUser(req, res) {
     User.findOneAndDelete({ _id: req.params.userId })
       .then((dbUserData) => {
         if (!dbUserData) {
@@ -83,7 +83,7 @@ const userController = {
       });
   },
 
-  addFriend(req, res) {
+  addOneFriend(req, res) {
     User.findOneAndUpdate({ _id: req.params.userId }, { $addToSet: { friends: req.params.friendId } }, { new: true })
       .then((dbUserData) => {
         if (!dbUserData) {
@@ -97,7 +97,7 @@ const userController = {
       });
   },
 
-  removeFriend(req, res) {
+  removeOneFriend(req, res) {
     User.findOneAndUpdate({ _id: req.params.userId }, { $pull: { friends: req.params.friendId } }, { new: true })
       .then((dbUserData) => {
         if (!dbUserData) {
